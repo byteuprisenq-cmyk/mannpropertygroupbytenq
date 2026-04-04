@@ -808,11 +808,11 @@
     background: linear-gradient(to right, transparent, var(--gold));
   }
   .divider-ornament::after { background: linear-gradient(to left, transparent, var(--gold)); }
-  @media (max-width: 768px) {
+ @media (max-width: 768px) {
 
   .hero-stats {
     display: flex;
-    flex-direction: row;   /* keep in one line */
+    flex-direction: row;
     justify-content: space-between;
     gap: 10px;
     margin-top: 25px;
@@ -825,13 +825,14 @@
   }
 
   .hero-stat-num {
-    font-size: 22px;
+    font-size: 14px;
   }
 
   .hero-stat-label {
-    font-size: 9px;
+    font-size: 11px;
   }
-}
+
+} /* ← THIS closing bracket is VERY IMPORTANT */
 </style>
 </head>
 <body>
