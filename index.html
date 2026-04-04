@@ -490,6 +490,12 @@
     background: var(--cream); padding: clamp(30px, 4vw, 48px) clamp(26px, 3vw, 40px);
     transition: background 0.35s; position: relative; overflow: hidden;
   }
+  @media (max-width: 760px) {
+  .service-card,
+  .service-item {
+    text-align: center;
+  }
+}
   .service-card::before {
     content: ''; position: absolute; bottom: 0; left: 0;
     width: 0; height: 2px;
