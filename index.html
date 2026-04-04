@@ -141,7 +141,6 @@
     background: var(--gold) !important; padding-left: 0 !important;
   }
 
-  /* Mobile contact bar in mobile menu */
   .mobile-contact-bar {
     margin-top: 28px;
     padding-top: 24px;
@@ -160,7 +159,6 @@
   }
   .mobile-contact-bar a:hover { color: var(--gold) !important; padding-left: 0 !important; }
 
-  /* Social icons in mobile menu */
   .mobile-social {
     display: flex; gap: 14px; margin-top: 8px;
   }
@@ -214,7 +212,6 @@
     overflow: hidden;
   }
 
-  /* Subtle grain overlay */
   #home::after {
     content: '';
     position: absolute; inset: 0;
@@ -222,7 +219,6 @@
     pointer-events: none; z-index: 0;
   }
 
-  /* Gold accent line left */
   #home::before {
     content: '';
     position: absolute; left: clamp(20px, 5vw, 72px); top: 20%; bottom: 20%;
@@ -303,7 +299,6 @@
   }
   .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
 
-  /* Hero contact bar — NEW PREMIUM ADDITION */
   .hero-contact-strip {
     position: relative;
     bottom: 0; left: 0; right: 0;
@@ -347,7 +342,6 @@
   }
   .hero-contact-val a:hover { color: var(--gold-light); }
 
-  /* Social icons in hero strip */
   .hero-social-wrap {
     display: flex; align-items: center; gap: 10px;
     padding: 18px 0 18px 28px;
@@ -369,54 +363,34 @@
   .hero-social-link svg { width: 16px; height: 16px; }
 
   @media (max-width: 760px) {
-
   .hero-contact-strip {
-    position: relative !important;  /* 🔥 CHANGE THIS */
+    position: relative !important;
     width: 100%;
     background: #0f1720;
     padding: 10px 0;
     overflow-x: auto;
   }
-
   .hero-contact-inner {
     display: flex;
     flex-wrap: nowrap;
     gap: 20px;
     padding: 0 16px;
   }
-
   .hero-contact-item {
     flex: 0 0 auto;
     border: none;
     padding: 8px 0;
   }
-
-  .hero-contact-label {
-    display: none;
+  .hero-contact-label { display: none; }
+  .hero-contact-val { font-size: 13px; white-space: nowrap; }
+  .hero-contact-icon { width: 28px; height: 28px; }
+  .hero-social-wrap { flex: 0 0 auto; padding: 0; margin-left: 10px; }
   }
-  
-  .hero-contact-val {
-    font-size: 13px;
-    white-space: nowrap;
-  }
-  
-  .hero-contact-icon {
-    width: 28px;
-    height: 28px;
-  }
-  
-  .hero-social-wrap {
-    flex: 0 0 auto;
-    padding: 0;
-    margin-left: 10px;
-  }
- }
     
- .hero-contact-item:last-child { border-bottom: none; }
-    .hero-social-wrap { padding: 14px 0; margin-left: 0; }
-    .hero-btns { gap: 10px; }
-    .hero-btns .btn-primary, .hero-btns .btn-outline { flex: 1; text-align: center; }
-  }
+  .hero-contact-item:last-child { border-bottom: none; }
+  .hero-social-wrap { padding: 14px 0; margin-left: 0; }
+  .hero-btns { gap: 10px; }
+  .hero-btns .btn-primary, .hero-btns .btn-outline { flex: 1; text-align: center; }
 
   .hero-stats {
     display: flex; gap: clamp(20px, 4vw, 48px);
@@ -449,36 +423,26 @@
     font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
     color: var(--gold); margin-bottom: 16px; display: flex;
     align-items: center; gap: 14px;
+    justify-content: center;
+    text-align: center;
   }
-  .section-eyebrow {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-  
   .section-eyebrow::before {
     content: ''; display: block; width: 28px; height: 1px;
     background: linear-gradient(to right, var(--gold), transparent);
   }
-  
   .section-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(34px, 4.5vw, 58px); font-weight: 300;
     line-height: 1.12; color: var(--dark);
     letter-spacing: -0.01em;
-    
   }
-  
   .section-title em { font-style: italic; color: var(--gold); }
-  
 
   /* ── SERVICES ── */
   #services {
     padding: clamp(72px, 10vw, 128px) clamp(20px, 6vw, 80px);
     background: var(--warm-white);
   }
-  
-  
   .services-header {
     display: flex; justify-content: space-between;
     align-items: flex-end; margin-bottom: 60px; flex-wrap: wrap; gap: 24px;
@@ -493,11 +457,8 @@
     transition: background 0.35s; position: relative; overflow: hidden;
   }
   @media (max-width: 760px) {
-  .service-card,
-  .service-item {
-    text-align: center;
+  .service-card, .service-item { text-align: center; }
   }
-}
   .service-card::before {
     content: ''; position: absolute; bottom: 0; left: 0;
     width: 0; height: 2px;
@@ -612,6 +573,48 @@
   .prop-specs { display: flex; gap: 16px; font-size: 13px; color: var(--muted); }
   .prop-spec { display: flex; align-items: center; gap: 5px; }
 
+  /* Firebase listing cards styled to match site */
+  .fb-prop-card {
+    background: #fff; overflow: hidden; border-radius: 2px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), box-shadow 0.35s;
+  }
+  .fb-prop-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.13); }
+  .fb-prop-img-wrap { position: relative; overflow: hidden; aspect-ratio: 16/10; background: #f0ebe2; }
+  .fb-prop-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+  .fb-prop-card:hover .fb-prop-img-wrap img { transform: scale(1.06); }
+  .fb-prop-tag {
+    position: absolute; top: 16px; left: 16px;
+    background: var(--gold); color: #fff;
+    font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 5px 12px; font-weight: 500;
+  }
+  .fb-prop-tag.status-rent { background: #1565c0; }
+  .fb-prop-tag.status-sold { background: #880e4f; }
+  .fb-prop-tag.status-leased { background: #6a1b9a; }
+  .fb-prop-body { padding: 22px 24px 26px; }
+  .fb-prop-loc { font-size: 11px; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 7px; }
+  .fb-prop-title { font-family: 'Cormorant Garamond', serif; font-size: 23px; font-weight: 400; margin-bottom: 10px; color: var(--dark); }
+  .fb-prop-price { font-size: 17px; font-weight: 500; color: var(--dark); margin-bottom: 14px; }
+  .fb-prop-specs { display: flex; gap: 16px; font-size: 13px; color: var(--muted); flex-wrap: wrap; }
+  .fb-prop-desc { font-size: 13px; color: var(--muted); line-height: 1.7; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); }
+  .fb-prop-agent { font-size: 12px; color: var(--muted); margin-top: 10px; }
+
+  .props-loading {
+    grid-column: 1/-1;
+    text-align: center; padding: 60px 20px;
+    color: var(--muted); font-size: 15px;
+  }
+  .props-loading-spinner {
+    width: 28px; height: 28px;
+    border: 2px solid var(--border);
+    border-top-color: var(--gold);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    margin: 0 auto 16px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
   /* ── TESTIMONIALS ── */
   #testimonials {
     padding: clamp(72px, 10vw, 128px) clamp(20px, 6vw, 80px);
@@ -665,12 +668,9 @@
   }
   .contact-info h2 { margin-bottom: 18px; }
   .contact-desc { font-size: 15px; color: var(--muted); line-height: 1.8; font-weight: 300; margin-bottom: 40px; }
-
-  /* Agent intro block */
   .contact-agent {
     display: flex; align-items: center; gap: 16px;
-    margin-bottom: 36px;
-    padding: 20px 22px;
+    margin-bottom: 36px; padding: 20px 22px;
     background: var(--warm-white);
     border-left: 2px solid var(--gold);
   }
@@ -685,7 +685,6 @@
   }
   .contact-agent-name { font-size: 16px; font-weight: 500; color: var(--dark); }
   .contact-agent-role { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-top: 3px; }
-
   .contact-detail { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 22px; }
   .contact-detail-icon {
     width: 44px; height: 44px; border: 1px solid var(--border);
@@ -700,8 +699,6 @@
   .contact-detail-val { font-size: 15px; color: var(--dark); font-weight: 400; }
   .contact-detail-val a { color: inherit; text-decoration: none; transition: color 0.2s; }
   .contact-detail-val a:hover { color: var(--gold); }
-
-  /* Social links in contact */
   .contact-social {
     display: flex; gap: 12px; margin-top: 32px; padding-top: 32px;
     border-top: 1px solid var(--border);
@@ -715,11 +712,9 @@
   }
   .contact-social-link:hover { background: var(--charcoal); color: #fff; border-color: var(--charcoal); }
   .contact-social-link svg { width: 15px; height: 15px; flex-shrink: 0; }
-
   .contact-hours { margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--border); }
   .contact-hours h4 { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
   .contact-hours p { font-size: 14px; color: var(--charcoal); line-height: 1.85; }
-
   .contact-form-wrap {
     background: #fff; padding: clamp(30px, 4vw, 52px);
     box-shadow: 0 4px 40px rgba(0,0,0,0.06);
@@ -741,7 +736,6 @@
   }
   .form-group textarea { resize: vertical; min-height: 120px; }
   .form-submit { width: 100%; padding: 16px; font-size: 13px; }
-
   @media (max-width: 800px) {
     #contact { grid-template-columns: 1fr; }
     .form-row { grid-template-columns: 1fr; }
@@ -813,28 +807,21 @@
     transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1);
   }
   .reveal.visible { opacity: 1; transform: translateY(0); }
-
-  /* Hero entrance animation */
   .hero-fade-1 { animation: fadeUp 0.9s cubic-bezier(0.4,0,0.2,1) 0.1s both; }
   .hero-fade-2 { animation: fadeUp 0.9s cubic-bezier(0.4,0,0.2,1) 0.25s both; }
   .hero-fade-3 { animation: fadeUp 0.9s cubic-bezier(0.4,0,0.2,1) 0.4s both; }
   .hero-fade-4 { animation: fadeUp 0.9s cubic-bezier(0.4,0,0.2,1) 0.55s both; }
 
-  /* Tap targets */
   a, button, [role="button"] {
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
   }
-
-  /* Select arrow */
   .form-group select {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B6560' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 16px center;
     padding-right: 40px;
   }
-
-  /* Gold divider ornament */
   .divider-ornament {
     display: flex; align-items: center; justify-content: center;
     gap: 16px; margin: 0 auto 56px;
@@ -845,124 +832,35 @@
     background: linear-gradient(to right, transparent, var(--gold));
   }
   .divider-ornament::after { background: linear-gradient(to left, transparent, var(--gold)); }
- @media (max-width: 768px) {
 
-  .hero-stats {
-    text-align: center;
-    flex: 1;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 10px;
-    margin-top: 25px;
-    padding-top: 20px;
+  @media (max-width: 768px) {
+    .hero-stats {
+      text-align: center; flex: 1; display: flex;
+      flex-direction: row; justify-content: space-between;
+      gap: 10px; margin-top: 25px; padding-top: 20px;
+    }
+    .hero-stat { flex: 1; text-align: center; }
+    .hero-stat-num { font-size: 19px; }
+    .hero-stat-label { font-size: 11px; }
   }
 
-  .hero-stat {
-    flex: 1;
-    text-align: center;
-  }
-
-  .hero-stat-num {
-    font-size: 19px;
-  }
-
-  .hero-stat-label {
-    font-size: 11px;
-  }
-
-@media (max-width: 760px) {
-
-  #services {
-    text-align: center;
-  }
-
-  #services h2,
-  #services p {
-    text-align: center;
-  }
-
-  #services .section-intro {
-    text-align: center;
-    align-items: center;
-  }
-
-  #services .section-eyebrow {
-    display: flex;
-    justify-content: center;
-  }
-
-  #services .btn-primary {
-    display: block;
-    margin: 20px auto 0;
-  }
-
-}
-
-}
-@media (max-width: 760px) {
-
-  /* Target the CORRECT section */
-  #about {
-    text-align: center;
-  }
-
-  /* Center top content */
-  #about .reveal {
-    text-align: center;
-    margin: 0 auto;
-  }
-
-  /* Center "Why Choose Us" */
-  #about .section-eyebrow {
-    display: flex;
-    justify-content: center;
-  }
-
-  /* Center heading + paragraph */
-  #about .section-title,
-  #about .about-text {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  /* 🔥 THIS IS THE MAIN FIX (your pillars are in a grid/flex) */
   @media (max-width: 760px) {
-
-  #about .about-pillars {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    #services { text-align: center; }
+    #services h2, #services p { text-align: center; }
+    #services .section-intro { text-align: center; align-items: center; }
+    #services .section-eyebrow { display: flex; justify-content: center; }
+    #services .btn-primary { display: block; margin: 20px auto 0; }
+    #about { text-align: center; }
+    #about .reveal { text-align: center; margin: 0 auto; }
+    #about .section-eyebrow { display: flex; justify-content: center; }
+    #about .section-title, #about .about-text { text-align: center; margin-left: auto; margin-right: auto; }
+    #about .about-pillars { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    #about .pillar { text-align: center; }
   }
 
-  #about .pillar {
-    text-align: center;
-  }
-
-}
-
-  /* Center each card */
-  #about .pillar {
-    text-align: center;
-    max-width: 320px;
-  }
-
-}
-#properties .prop-header {
-  text-align: center;
-}
-
-#properties .prop-header > div {
-  width: 100%;
-}
-#properties .filter-bar {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-}
-
+  #properties .prop-header { text-align: center; }
+  #properties .prop-header > div { width: 100%; }
+  #properties .filter-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
 </style>
 </head>
 <body>
@@ -1024,75 +922,66 @@
       <a href="#contact" class="btn-outline">Book Consultation</a>
     </div>
     <div class="hero-stats hero-fade-4 stats">
-  
-  <div class="hero-stat">
-    <div class="hero-stat-num">12<span>+</span></div>
-    <div class="hero-stat-label">Years Experience</div>
-  </div>
-
-  <div class="hero-stat">
-    <div class="hero-stat-num">300<span>+</span></div>
-    <div class="hero-stat-label">Homes Delivered</div>
-  </div>
-
-  <div class="hero-stat">
-    <div class="hero-stat-num">98<span>%</span></div>
-    <div class="hero-stat-label">Client Satisfaction</div>
-  </div>
-
-</div>
-  </div>
-
-  <!-- Contact strip pinned to bottom of hero -->
-  
-</section>
-<div class="hero-contact-strip hero-fade-4">
-    <div class="hero-contact-inner">
-      <!-- Agent Name -->
-      <div class="hero-contact-item">
-        <div class="hero-contact-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-        </div>
-        <div>
-          <div class="hero-contact-label">Your Agent</div>
-          <div class="hero-contact-val">Sharan Mann</div>
-        </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">12<span>+</span></div>
+        <div class="hero-stat-label">Years Experience</div>
       </div>
-      <!-- Phone -->
-      <div class="hero-contact-item">
-        <div class="hero-contact-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-        </div>
-        <div>
-          <div class="hero-contact-label">Call Us</div>
-          <div class="hero-contact-val"><a href="tel:+610401050235">+610401050235</a></div>
-        </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">300<span>+</span></div>
+        <div class="hero-stat-label">Homes Delivered</div>
       </div>
-      <!-- Email -->
-      <div class="hero-contact-item">
-        <div class="hero-contact-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
-        </div>
-        <div>
-          <div class="hero-contact-label">Email Us</div>
-          <div class="hero-contact-val"><a href="mailto:info.mannpropertygroup@gmail.com">info.mannpropertygroup@gmail.com</a></div>
-        </div>
-      </div>
-      <!-- Social -->
-      <div class="hero-social-wrap">
-        <a href="https://www.instagram.com/sharankaurrealtor?igsh=aGNyMGVzZjFha2F2" target="_blank" rel="noopener" class="hero-social-link" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-          </svg>
-        </a>
-        <a href="https://www.facebook.com/sharankaur9193/" target="_blank" rel="noopener" class="hero-social-link" aria-label="Facebook">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
-          </svg>
-        </a>
+      <div class="hero-stat">
+        <div class="hero-stat-num">98<span>%</span></div>
+        <div class="hero-stat-label">Client Satisfaction</div>
       </div>
     </div>
   </div>
+</section>
+
+<!-- HERO CONTACT STRIP -->
+<div class="hero-contact-strip hero-fade-4">
+  <div class="hero-contact-inner">
+    <div class="hero-contact-item">
+      <div class="hero-contact-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      </div>
+      <div>
+        <div class="hero-contact-label">Your Agent</div>
+        <div class="hero-contact-val">Sharan Mann</div>
+      </div>
+    </div>
+    <div class="hero-contact-item">
+      <div class="hero-contact-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+      </div>
+      <div>
+        <div class="hero-contact-label">Call Us</div>
+        <div class="hero-contact-val"><a href="tel:+610401050235">+610401050235</a></div>
+      </div>
+    </div>
+    <div class="hero-contact-item">
+      <div class="hero-contact-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+      </div>
+      <div>
+        <div class="hero-contact-label">Email Us</div>
+        <div class="hero-contact-val"><a href="mailto:info.mannpropertygroup@gmail.com">info.mannpropertygroup@gmail.com</a></div>
+      </div>
+    </div>
+    <div class="hero-social-wrap">
+      <a href="https://www.instagram.com/sharankaurrealtor?igsh=aGNyMGVzZjFha2F2" target="_blank" rel="noopener" class="hero-social-link" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+        </svg>
+      </a>
+      <a href="https://www.facebook.com/sharankaur9193/" target="_blank" rel="noopener" class="hero-social-link" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
 
 <!-- SERVICES -->
 <section id="services">
@@ -1127,7 +1016,7 @@
   </div>
 </section>
 
-<!-- ABOUT / WHY US -->
+<!-- ABOUT -->
 <section id="about">
   <div class="reveal">
     <div class="section-eyebrow">Why Choose Us</div>
@@ -1165,7 +1054,7 @@
   </div>
 </section>
 
-<!-- PROPERTIES -->
+<!-- PROPERTIES — listings loaded from Firebase -->
 <section id="properties">
   <div class="prop-header reveal">
     <div>
@@ -1173,110 +1062,15 @@
       <h2 class="section-title">Find your perfect <em>home</em></h2>
     </div>
   </div>
-  <div class="filter-bar reveal">
-    <button class="filter-btn active" onclick="filterProps(this,'all')">All Properties</button>
-    <button class="filter-btn" onclick="filterProps(this,'house-land')">House and Land</button>
-    <button class="filter-btn" onclick="filterProps(this,'new-build')">New Builds</button>
-    <button class="filter-btn" onclick="filterProps(this,'renovation')">Renovations</button>
-    <button class="filter-btn" onclick="filterProps(this,'extension')">Extensions</button>
-  </div>
-  <div class="props-grid">
-    <div class="prop-card reveal" data-type="house-land">
-      <div class="prop-img-wrap">
-        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800" alt="Harrington Rise Estate" loading="lazy">
-        <span class="prop-tag">House and Land</span>
-      </div>
-      <div class="prop-body">
-        <div class="prop-loc">Wyndham Vale, VIC</div>
-        <h3>Harrington Rise Estate</h3>
-        <div class="prop-price">From $580,000</div>
-        <div class="prop-specs">
-          <span class="prop-spec">🛏 4 Bed</span>
-          <span class="prop-spec">🛁 2 Bath</span>
-          <span class="prop-spec">🚗 2 Car</span>
-        </div>
-      </div>
-    </div>
-    <div class="prop-card reveal" data-type="new-build">
-      <div class="prop-img-wrap">
-        <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=800" alt="Sanctuary Lakes View" loading="lazy">
-        <span class="prop-tag">New Build</span>
-      </div>
-      <div class="prop-body">
-        <div class="prop-loc">Point Cook, VIC</div>
-        <h3>Sanctuary Lakes View</h3>
-        <div class="prop-price">From $720,000</div>
-        <div class="prop-specs">
-          <span class="prop-spec">🛏 5 Bed</span>
-          <span class="prop-spec">🛁 3 Bath</span>
-          <span class="prop-spec">🚗 2 Car</span>
-        </div>
-      </div>
-    </div>
-    <div class="prop-card reveal" data-type="renovation">
-      <div class="prop-img-wrap">
-        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=800" alt="Meridian Collection" loading="lazy">
-        <span class="prop-tag">Renovation</span>
-      </div>
-      <div class="prop-body">
-        <div class="prop-loc">Tarneit, VIC</div>
-        <h3>Meridian Collection</h3>
-        <div class="prop-price">From $650,000</div>
-        <div class="prop-specs">
-          <span class="prop-spec">🛏 4 Bed</span>
-          <span class="prop-spec">🛁 2 Bath</span>
-          <span class="prop-spec">🚗 2 Car</span>
-        </div>
-      </div>
-    </div>
-    <div class="prop-card reveal" data-type="house-land">
-      <div class="prop-img-wrap">
-        <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?q=80&w=800" alt="Riverside Promenade" loading="lazy">
-        <span class="prop-tag">House and Land</span>
-      </div>
-      <div class="prop-body">
-        <div class="prop-loc">Truganina, VIC</div>
-        <h3>Riverside Promenade</h3>
-        <div class="prop-price">From $560,000</div>
-        <div class="prop-specs">
-          <span class="prop-spec">🛏 3 Bed</span>
-          <span class="prop-spec">🛁 2 Bath</span>
-          <span class="prop-spec">🚗 1 Car</span>
-        </div>
-      </div>
-    </div>
-    <div class="prop-card reveal" data-type="extension">
-      <div class="prop-img-wrap">
-        <img src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?q=80&w=800" alt="Oakwood Residences" loading="lazy">
-        <span class="prop-tag">Extension</span>
-      </div>
-      <div class="prop-body">
-        <div class="prop-loc">Hoppers Crossing, VIC</div>
-        <h3>Oakwood Residences</h3>
-        <div class="prop-price">From $480,000</div>
-        <div class="prop-specs">
-          <span class="prop-spec">🛏 4 Bed</span>
-          <span class="prop-spec">🛁 2 Bath</span>
-          <span class="prop-spec">🚗 2 Car</span>
-        </div>
-      </div>
-    </div>
-    <div class="prop-card reveal" data-type="new-build">
-      <div class="prop-img-wrap">
-        <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=800" alt="The Willows Estate" loading="lazy">
-      </div>
-      <div class="prop-body">
-        <div class="prop-loc">Werribee, VIC</div>
-        <h3>The Willows Estate</h3>
-        <div class="prop-price">From $640,000</div>
-        <div class="prop-specs">
-          <span class="prop-spec">🛏 4 Bed</span>
-          <span class="prop-spec">🛁 2 Bath</span>
-          <span class="prop-spec">🚗 2 Car</span>
-        </div>
-      </div>
+
+  <!-- ✅ THIS IS WHERE FIREBASE LISTINGS WILL APPEAR -->
+  <div class="props-grid" id="listingsContainer">
+    <div class="props-loading">
+      <div class="props-loading-spinner"></div>
+      Loading properties…
     </div>
   </div>
+
   <div style="text-align:center;margin-top:52px" class="reveal">
     <p style="color:var(--muted);margin-bottom:22px;font-size:16px;font-weight:300">Not seeing what you are looking for? We have access to off-market listings and upcoming releases.</p>
     <a href="#contact" class="btn-primary">Contact Us Today</a>
@@ -1383,8 +1177,6 @@
     <div class="section-eyebrow">Reach Out</div>
     <h2 class="section-title">Let us start your <em>journey</em></h2>
     <p class="contact-desc">Whether you have questions or are ready to begin, our team is here to guide you with clarity and confidence every step of the way.</p>
-
-    <!-- Agent card -->
     <div class="contact-agent">
       <div class="contact-agent-avatar">SM</div>
       <div>
@@ -1392,7 +1184,6 @@
         <div class="contact-agent-role">Principal Realtor · Mann Property Group</div>
       </div>
     </div>
-
     <div class="contact-detail">
       <div class="contact-detail-icon">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
@@ -1420,8 +1211,6 @@
         <div class="contact-detail-val">Brisbane, Australia</div>
       </div>
     </div>
-
-    <!-- Social links -->
     <div class="contact-social">
       <a href="https://www.instagram.com/sharankaurrealtor?igsh=aGNyMGVzZjFha2F2" target="_blank" rel="noopener" class="contact-social-link">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -1436,13 +1225,11 @@
         Facebook
       </a>
     </div>
-
     <div class="contact-hours">
       <h4>Business Hours</h4>
       <p>Monday to Friday, 9am – 6pm<br>Response within 24 hours<br>Free, no obligation consultations</p>
     </div>
   </div>
-
   <div class="contact-form-wrap reveal">
     <div class="form-row">
       <div class="form-group">
@@ -1573,7 +1360,6 @@ document.addEventListener('click', function(e) {
   }
 });
 
-// Close on Escape key
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape' && menuOpen) closeMobileMenu();
 });
@@ -1582,19 +1368,6 @@ document.addEventListener('keydown', function(e) {
 window.addEventListener('scroll', function() {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
 }, { passive: true });
-
-// ── PROPERTY FILTER ──
-function filterProps(btn, type) {
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  document.querySelectorAll('.prop-card').forEach(card => {
-    if (type === 'all' || card.dataset.type === type) {
-      card.style.display = '';
-    } else {
-      card.style.display = 'none';
-    }
-  });
-}
 
 // ── SCROLL REVEAL ──
 const revealObserver = new IntersectionObserver(function(entries) {
@@ -1637,48 +1410,24 @@ function submitForm(btn) {
   }, 1200);
 }
 </script>
-<!--
-===========================================================
-  MANN PROPERTY GROUP — Website Firebase Integration
-  
-  INSTRUCTIONS:
-  1. Paste the <script type="module"> block into your HTML
-     page (usually index.html or listings.html), just before
-     closing </body> tag.
-  
-  2. Replace the firebaseConfig values with your own.
-  
-  3. Make sure you have a container in your HTML with
-     id="listingsContainer" where the listings will appear.
-     Example: <div id="listingsContainer"></div>
-===========================================================
--->
 
-<!-- Firebase SDK -->
+<!-- ✅ FIREBASE — loads listings from Firestore into #listingsContainer -->
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import {
-  getFirestore,
-  collection,
-  getDocs,
-  query,
-  orderBy
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-// ⚠️ Replace with your Firebase config (same values as in admin-portal.html)
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyDm8pinpgW9msv5RzrnAIJGeZ_ybaAOT0E",
+  authDomain: "mann-property-group.firebaseapp.com",
+  projectId: "mann-property-group",
+  storageBucket: "mann-property-group.firebasestorage.app",
+  messagingSenderId: "882560249977",
+  appId: "1:882560249977:web:6739e5d7e839c74160e4a8"
 };
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Fetch and render listings
 async function loadListings() {
   const container = document.getElementById("listingsContainer");
   if (!container) return;
@@ -1689,66 +1438,63 @@ async function loadListings() {
     const listings = snap.docs.map(d => ({ id: d.id, ...d.data() }));
 
     if (!listings.length) {
-      container.innerHTML = `<p style="text-align:center;padding:60px;color:#888;">No listings available at the moment. Check back soon!</p>`;
+      container.innerHTML = `
+        <div style="grid-column:1/-1;text-align:center;padding:80px 20px;">
+          <p style="color:var(--muted);font-size:16px;font-weight:300;">No listings available at the moment. Check back soon!</p>
+          <a href="#contact" class="btn-primary" style="margin-top:20px;display:inline-block;">Enquire About Properties</a>
+        </div>`;
       return;
     }
 
     container.innerHTML = listings.map(l => buildCard(l)).join("");
 
   } catch (err) {
-    console.error("Error loading listings:", err);
+    console.error("Firebase error:", err);
+    container.innerHTML = `
+      <div style="grid-column:1/-1;text-align:center;padding:60px 20px;">
+        <p style="color:var(--muted);font-size:15px;">Unable to load listings right now. Please try again later.</p>
+      </div>`;
   }
 }
 
-// ── Build a listing card — customise this HTML to match your site's design ──
 function buildCard(l) {
   const img = (l.images && l.images[0]) ? l.images[0] : "";
-  const statusColors = {
-    "For Sale": "#2e7d32",
-    "For Rent": "#1565c0",
-    "Sold": "#880e4f",
-    "Leased": "#6a1b9a"
-  };
-  const statusColor = statusColors[l.status] || "#333";
+  const statusClass = { "For Rent": "status-rent", "Sold": "status-sold", "Leased": "status-leased" }[l.status] || "";
 
   return `
-  <div class="property-card" style="
-    background:#fff;
-    border-radius:12px;
-    overflow:hidden;
-    box-shadow:0 2px 16px rgba(0,0,0,0.08);
-    transition:transform 0.2s;
-    margin-bottom:24px;
-  ">
-    ${img ? `<img src="${esc(img)}" alt="${esc(l.title)}" style="width:100%;height:220px;object-fit:cover;"/>` : ""}
-    <div style="padding:20px;">
-      <span style="
-        display:inline-block;background:${statusColor}22;color:${statusColor};
-        font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;
-        text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px;
-      ">${esc(l.status || "")}</span>
-      <h3 style="margin:0 0 4px;font-size:18px;">${esc(l.title || "")}</h3>
-      <p style="color:#888;font-size:13px;margin:0 0 10px;">📍 ${esc(l.address || "")}</p>
-      <p style="font-size:22px;font-weight:700;color:#c8a96e;margin:0 0 12px;">${esc(l.price || "Price on request")}</p>
-      <div style="display:flex;gap:16px;font-size:13px;color:#666;flex-wrap:wrap;padding-top:12px;border-top:1px solid #eee;margin-bottom:14px;">
-        ${l.beds ? `<span>🛏 ${l.beds} bed</span>` : ""}
-        ${l.baths ? `<span>🚿 ${l.baths} bath</span>` : ""}
-        ${l.cars ? `<span>🚗 ${l.cars} car</span>` : ""}
-        ${l.land ? `<span>📐 ${esc(l.land)}</span>` : ""}
-        ${l.type ? `<span>🏠 ${esc(l.type)}</span>` : ""}
+  <div class="fb-prop-card">
+    <div class="fb-prop-img-wrap">
+      ${img
+        ? `<img src="${esc(img)}" alt="${esc(l.title)}" loading="lazy" onerror="this.style.display='none'">`
+        : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px;">No image</div>`
+      }
+      <span class="fb-prop-tag ${statusClass}">${esc(l.status || "For Sale")}</span>
+    </div>
+    <div class="fb-prop-body">
+      ${l.address ? `<div class="fb-prop-loc">${esc(l.address)}</div>` : ""}
+      <div class="fb-prop-title">${esc(l.title || "Property Listing")}</div>
+      <div class="fb-prop-price">${esc(l.price || "Price on request")}</div>
+      <div class="fb-prop-specs">
+        ${l.beds  ? `<span>🛏 ${l.beds} Bed</span>`  : ""}
+        ${l.baths ? `<span>🛁 ${l.baths} Bath</span>` : ""}
+        ${l.cars  ? `<span>🚗 ${l.cars} Car</span>`   : ""}
+        ${l.land  ? `<span>📐 ${esc(l.land)}</span>`  : ""}
+        ${l.type  ? `<span>🏠 ${esc(l.type)}</span>`  : ""}
       </div>
-      ${l.description ? `<p style="font-size:14px;color:#555;line-height:1.6;margin:0 0 14px;">${esc(l.description).substring(0,200)}${l.description.length > 200 ? "…" : ""}</p>` : ""}
-      ${l.agent ? `<p style="font-size:13px;color:#888;margin:0;">Agent: <strong>${esc(l.agent)}</strong>${l.phone ? " · " + esc(l.phone) : ""}</p>` : ""}
+      ${l.description
+        ? `<div class="fb-prop-desc">${esc(l.description).substring(0, 160)}${l.description.length > 160 ? "…" : ""}</div>`
+        : ""}
+      ${l.agent
+        ? `<div class="fb-prop-agent">Agent: <strong>${esc(l.agent)}</strong>${l.phone ? " · " + esc(l.phone) : ""}</div>`
+        : ""}
     </div>
   </div>`;
 }
 
 function esc(s) {
   return String(s || "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;");
+    .replace(/&/g,"&amp;").replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;").replace(/"/g,"&quot;");
 }
 
 loadListings();
