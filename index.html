@@ -1637,5 +1637,122 @@ function submitForm(btn) {
   }, 1200);
 }
 </script>
+<!--
+===========================================================
+  MANN PROPERTY GROUP — Website Firebase Integration
+  
+  INSTRUCTIONS:
+  1. Paste the <script type="module"> block into your HTML
+     page (usually index.html or listings.html), just before
+     closing </body> tag.
+  
+  2. Replace the firebaseConfig values with your own.
+  
+  3. Make sure you have a container in your HTML with
+     id="listingsContainer" where the listings will appear.
+     Example: <div id="listingsContainer"></div>
+===========================================================
+-->
+
+<!-- Firebase SDK -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  query,
+  orderBy
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+// ⚠️ Replace with your Firebase config (same values as in admin-portal.html)
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT.appspot.com",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// Fetch and render listings
+async function loadListings() {
+  const container = document.getElementById("listingsContainer");
+  if (!container) return;
+
+  try {
+    const q = query(collection(db, "listings"), orderBy("createdAt", "desc"));
+    const snap = await getDocs(q);
+    const listings = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+
+    if (!listings.length) {
+      container.innerHTML = `<p style="text-align:center;padding:60px;color:#888;">No listings available at the moment. Check back soon!</p>`;
+      return;
+    }
+
+    container.innerHTML = listings.map(l => buildCard(l)).join("");
+
+  } catch (err) {
+    console.error("Error loading listings:", err);
+  }
+}
+
+// ── Build a listing card — customise this HTML to match your site's design ──
+function buildCard(l) {
+  const img = (l.images && l.images[0]) ? l.images[0] : "";
+  const statusColors = {
+    "For Sale": "#2e7d32",
+    "For Rent": "#1565c0",
+    "Sold": "#880e4f",
+    "Leased": "#6a1b9a"
+  };
+  const statusColor = statusColors[l.status] || "#333";
+
+  return `
+  <div class="property-card" style="
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 2px 16px rgba(0,0,0,0.08);
+    transition:transform 0.2s;
+    margin-bottom:24px;
+  ">
+    ${img ? `<img src="${esc(img)}" alt="${esc(l.title)}" style="width:100%;height:220px;object-fit:cover;"/>` : ""}
+    <div style="padding:20px;">
+      <span style="
+        display:inline-block;background:${statusColor}22;color:${statusColor};
+        font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;
+        text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px;
+      ">${esc(l.status || "")}</span>
+      <h3 style="margin:0 0 4px;font-size:18px;">${esc(l.title || "")}</h3>
+      <p style="color:#888;font-size:13px;margin:0 0 10px;">📍 ${esc(l.address || "")}</p>
+      <p style="font-size:22px;font-weight:700;color:#c8a96e;margin:0 0 12px;">${esc(l.price || "Price on request")}</p>
+      <div style="display:flex;gap:16px;font-size:13px;color:#666;flex-wrap:wrap;padding-top:12px;border-top:1px solid #eee;margin-bottom:14px;">
+        ${l.beds ? `<span>🛏 ${l.beds} bed</span>` : ""}
+        ${l.baths ? `<span>🚿 ${l.baths} bath</span>` : ""}
+        ${l.cars ? `<span>🚗 ${l.cars} car</span>` : ""}
+        ${l.land ? `<span>📐 ${esc(l.land)}</span>` : ""}
+        ${l.type ? `<span>🏠 ${esc(l.type)}</span>` : ""}
+      </div>
+      ${l.description ? `<p style="font-size:14px;color:#555;line-height:1.6;margin:0 0 14px;">${esc(l.description).substring(0,200)}${l.description.length > 200 ? "…" : ""}</p>` : ""}
+      ${l.agent ? `<p style="font-size:13px;color:#888;margin:0;">Agent: <strong>${esc(l.agent)}</strong>${l.phone ? " · " + esc(l.phone) : ""}</p>` : ""}
+    </div>
+  </div>`;
+}
+
+function esc(s) {
+  return String(s || "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;");
+}
+
+loadListings();
+</script>
+
 </body>
 </html>
