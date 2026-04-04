@@ -198,41 +198,37 @@
     min-height: 100vh;
     padding-top: var(--nav-h);
     display: flex;
-    align-items: center;
+    flex-direction: column;
     position: relative;
     background:
       linear-gradient(
-        135deg,
-        rgba(0,0,0,0.82) 0%,
-        rgba(0,0,0,0.55) 45%,
-        rgba(0,0,0,0.28) 100%
+        160deg,
+        rgba(0,0,0,0.85) 0%,
+        rgba(0,0,0,0.60) 50%,
+        rgba(0,0,0,0.35) 100%
       ),
       url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1920&q=80')
       center/cover no-repeat;
     color: #fff;
-    overflow: hidden;
   }
 
-  /* Subtle grain overlay */
-  #home::after {
-    content: '';
-    position: absolute; inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none; z-index: 0;
-  }
-
-  /* Gold accent line left */
+  /* Gold accent line — desktop only */
   #home::before {
     content: '';
-    position: absolute; left: clamp(20px, 5vw, 72px); top: 20%; bottom: 20%;
+    position: absolute; left: clamp(20px, 5vw, 72px); top: 18%; bottom: 22%;
     width: 1px; background: linear-gradient(to bottom, transparent, var(--gold), transparent);
-    opacity: 0.4;
+    opacity: 0.35; pointer-events: none;
   }
 
+  /* Hero main content grows to fill space */
   .hero-content {
     position: relative; z-index: 1;
-    max-width: 660px;
-    padding: clamp(40px, 8vw, 100px) clamp(24px, 6vw, 100px);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 700px;
+    padding: clamp(48px, 8vw, 100px) clamp(24px, 6vw, 100px) clamp(40px, 5vw, 72px);
   }
 
   .hero-eyebrow {
@@ -241,14 +237,14 @@
     color: var(--gold-light); margin-bottom: 24px;
   }
   .hero-eyebrow::before {
-    content: ''; display: block; width: 40px; height: 1px;
+    content: ''; display: block; width: 36px; height: 1px;
     background: linear-gradient(to right, var(--gold), transparent);
     flex-shrink: 0;
   }
 
   .hero-content h1 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(46px, 6.5vw, 84px);
+    font-size: clamp(44px, 6.5vw, 84px);
     line-height: 1.05; font-weight: 300; color: #fff;
     margin-bottom: 22px;
     letter-spacing: -0.01em;
@@ -258,10 +254,10 @@
   .hero-content p {
     color: rgba(255,255,255,0.72);
     margin-bottom: 36px; font-size: 16px;
-    max-width: 480px; line-height: 1.8; font-weight: 300;
+    max-width: 460px; line-height: 1.8; font-weight: 300;
   }
 
-  .hero-btns { display: flex; flex-wrap: wrap; gap: 14px; }
+  .hero-btns { display: flex; flex-wrap: wrap; gap: 12px; }
 
   .btn-primary {
     background: var(--gold); color: #fff;
@@ -290,84 +286,6 @@
   }
   .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
 
-  /* Hero contact bar — NEW PREMIUM ADDITION */
-  .hero-contact-strip {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    background: rgba(14,13,12,0.75);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(192,155,91,0.2);
-    z-index: 2;
-    padding: 0 clamp(24px, 6vw, 100px);
-  }
-  .hero-contact-inner {
-    display: flex; align-items: stretch;
-    flex-wrap: wrap;
-  }
-  .hero-contact-item {
-    display: flex; align-items: center; gap: 14px;
-    padding: 18px 28px 18px 0;
-    margin-right: 28px;
-    border-right: 1px solid rgba(255,255,255,0.08);
-    flex-shrink: 0;
-  }
-  .hero-contact-item:last-child { border-right: none; margin-right: 0; }
-  .hero-contact-icon {
-    width: 38px; height: 38px;
-    border: 1px solid rgba(192,155,91,0.4);
-    display: flex; align-items: center; justify-content: center;
-    color: var(--gold); flex-shrink: 0;
-  }
-  .hero-contact-label {
-    font-size: 10px; letter-spacing: 0.15em;
-    text-transform: uppercase; color: rgba(255,255,255,0.45);
-    margin-bottom: 3px;
-  }
-  .hero-contact-val {
-    font-size: 14px; color: #fff; font-weight: 400;
-  }
-  .hero-contact-val a {
-    color: inherit; text-decoration: none;
-    transition: color 0.2s;
-  }
-  .hero-contact-val a:hover { color: var(--gold-light); }
-
-  /* Social icons in hero strip */
-  .hero-social-wrap {
-    display: flex; align-items: center; gap: 10px;
-    padding: 18px 0 18px 28px;
-    margin-left: auto;
-  }
-  .hero-social-link {
-    width: 38px; height: 38px;
-    border: 1px solid rgba(192,155,91,0.3);
-    display: flex; align-items: center; justify-content: center;
-    color: rgba(255,255,255,0.65); text-decoration: none;
-    transition: all 0.25s;
-    flex-shrink: 0;
-  }
-  .hero-social-link:hover {
-    border-color: var(--gold);
-    color: var(--gold);
-    background: rgba(192,155,91,0.1);
-  }
-  .hero-social-link svg { width: 16px; height: 16px; }
-
-  @media (max-width: 760px) {
-    .hero-contact-strip { position: static; }
-    #home { padding-bottom: 0; }
-    .hero-contact-inner { flex-direction: column; }
-    .hero-contact-item {
-      border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08);
-      margin-right: 0; padding: 14px 0; width: 100%;
-    }
-    .hero-contact-item:last-child { border-bottom: none; }
-    .hero-social-wrap { padding: 14px 0; margin-left: 0; }
-    .hero-btns { gap: 10px; }
-    .hero-btns .btn-primary, .hero-btns .btn-outline { flex: 1; text-align: center; }
-  }
-
   .hero-stats {
     display: flex; gap: clamp(20px, 4vw, 48px);
     margin-top: 52px; padding-top: 36px;
@@ -383,9 +301,115 @@
     font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
     color: rgba(255,255,255,0.5); margin-top: 5px;
   }
-  @media (max-width: 480px) {
-    .hero-stats { flex-wrap: wrap; gap: 16px; }
-    .hero-stat { min-width: 80px; }
+
+  /* ── HERO CONTACT STRIP — sits below hero content, never overlaps ── */
+  .hero-contact-strip {
+    position: relative; z-index: 2;
+    background: rgba(10,9,8,0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(192,155,91,0.25);
+    padding: 0 clamp(24px, 6vw, 100px);
+  }
+  .hero-contact-inner {
+    display: flex; align-items: stretch; flex-wrap: nowrap;
+  }
+  .hero-contact-item {
+    display: flex; align-items: center; gap: 13px;
+    padding: 20px 28px 20px 0;
+    margin-right: 28px;
+    border-right: 1px solid rgba(255,255,255,0.07);
+    white-space: nowrap; flex-shrink: 0;
+  }
+  .hero-contact-item:last-of-type { border-right: none; margin-right: 0; }
+  .hero-contact-icon {
+    width: 36px; height: 36px;
+    border: 1px solid rgba(192,155,91,0.35);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold); flex-shrink: 0;
+  }
+  .hero-contact-label {
+    font-size: 9px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: rgba(255,255,255,0.42);
+    margin-bottom: 3px;
+  }
+  .hero-contact-val {
+    font-size: 13px; color: #fff; font-weight: 400;
+  }
+  .hero-contact-val a {
+    color: inherit; text-decoration: none; transition: color 0.2s;
+  }
+  .hero-contact-val a:hover { color: var(--gold-light); }
+
+  /* Social icons pushed to the right end of the strip */
+  .hero-social-wrap {
+    display: flex; align-items: center; gap: 10px;
+    padding: 20px 0 20px 24px; margin-left: auto; flex-shrink: 0;
+  }
+  .hero-social-link {
+    width: 36px; height: 36px;
+    border: 1px solid rgba(192,155,91,0.28);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.6); text-decoration: none;
+    transition: all 0.25s; flex-shrink: 0;
+  }
+  .hero-social-link:hover { border-color: var(--gold); color: var(--gold); }
+  .hero-social-link svg { width: 15px; height: 15px; }
+
+  /* ── MOBILE HERO — completely clean layout ── */
+  @media (max-width: 760px) {
+    #home::before { display: none; }
+
+    .hero-content {
+      padding: 36px 22px 32px;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(38px, 11vw, 52px);
+    }
+
+    .hero-content p {
+      font-size: 15px; margin-bottom: 28px; max-width: 100%;
+    }
+
+    .hero-btns {
+      flex-direction: column; gap: 10px;
+    }
+    .hero-btns .btn-primary,
+    .hero-btns .btn-outline {
+      text-align: center; width: 100%;
+      padding: 16px 20px;
+    }
+
+    .hero-stats {
+      margin-top: 36px; padding-top: 28px; gap: 0;
+      justify-content: space-between;
+    }
+    .hero-stat { flex: 1; }
+
+    /* Strip becomes a clean card grid on mobile */
+    .hero-contact-strip {
+      padding: 0;
+      background: var(--charcoal);
+      border-top: 2px solid rgba(192,155,91,0.3);
+    }
+    .hero-contact-inner {
+      flex-direction: column;
+    }
+    .hero-contact-item {
+      padding: 16px 22px;
+      margin-right: 0;
+      border-right: none;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      white-space: normal;
+    }
+    .hero-contact-item:last-of-type { border-bottom: none; }
+    .hero-social-wrap {
+      padding: 16px 22px;
+      margin-left: 0;
+      justify-content: flex-start;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
   }
 
   /* ── SECTION HEADER ── */
@@ -848,55 +872,48 @@
     </div>
   </div>
 
-  <!-- Contact strip pinned to bottom of hero -->
-  <div class="hero-contact-strip hero-fade-4">
-    <div class="hero-contact-inner">
-      <!-- Agent Name -->
-      <div class="hero-contact-item">
-        <div class="hero-contact-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-        </div>
-        <div>
-          <div class="hero-contact-label">Your Agent</div>
-          <div class="hero-contact-val">Sharan Mann</div>
-        </div>
+</section>
+
+<!-- CONTACT STRIP — below hero, above services, always clean -->
+<div class="hero-contact-strip hero-fade-4">
+  <div class="hero-contact-inner">
+    <div class="hero-contact-item">
+      <div class="hero-contact-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
       </div>
-      <!-- Phone -->
-      <div class="hero-contact-item">
-        <div class="hero-contact-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-        </div>
-        <div>
-          <div class="hero-contact-label">Call Us</div>
-          <div class="hero-contact-val"><a href="tel:0401050235">0401 050 235</a></div>
-        </div>
-      </div>
-      <!-- Email -->
-      <div class="hero-contact-item">
-        <div class="hero-contact-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
-        </div>
-        <div>
-          <div class="hero-contact-label">Email Us</div>
-          <div class="hero-contact-val"><a href="mailto:info.mannpropertygroup@gmail.com">info.mannpropertygroup@gmail.com</a></div>
-        </div>
-      </div>
-      <!-- Social -->
-      <div class="hero-social-wrap">
-        <a href="https://www.instagram.com/sharankaurrealtor?igsh=aGNyMGVzZjFha2F2" target="_blank" rel="noopener" class="hero-social-link" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-          </svg>
-        </a>
-        <a href="https://www.facebook.com/sharankaur9193/" target="_blank" rel="noopener" class="hero-social-link" aria-label="Facebook">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
-          </svg>
-        </a>
+      <div>
+        <div class="hero-contact-label">Your Agent</div>
+        <div class="hero-contact-val">Sharan Mann</div>
       </div>
     </div>
+    <div class="hero-contact-item">
+      <div class="hero-contact-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+      </div>
+      <div>
+        <div class="hero-contact-label">Call Us</div>
+        <div class="hero-contact-val"><a href="tel:0401050235">0401 050 235</a></div>
+      </div>
+    </div>
+    <div class="hero-contact-item">
+      <div class="hero-contact-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+      </div>
+      <div>
+        <div class="hero-contact-label">Email Us</div>
+        <div class="hero-contact-val"><a href="mailto:info.mannpropertygroup@gmail.com">info.mannpropertygroup@gmail.com</a></div>
+      </div>
+    </div>
+    <div class="hero-social-wrap">
+      <a href="https://www.instagram.com/sharankaurrealtor?igsh=aGNyMGVzZjFha2F2" target="_blank" rel="noopener" class="hero-social-link" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="https://www.facebook.com/sharankaur9193/" target="_blank" rel="noopener" class="hero-social-link" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+    </div>
   </div>
-</section>
+</div>
 
 <!-- SERVICES -->
 <section id="services">
@@ -1419,28 +1436,4 @@ document.querySelectorAll('.reveal').forEach(function(el) {
 function submitForm(btn) {
   const fname = document.getElementById('fname').value.trim();
   const email = document.getElementById('email').value.trim();
-  if (!fname || !email) {
-    alert('Please fill in your name and email to continue.');
-    return;
-  }
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
-  setTimeout(function() {
-    btn.textContent = '✓ Message Sent!';
-    btn.style.background = '#2a9d5c';
-    setTimeout(function() {
-      btn.textContent = 'Send Enquiry →';
-      btn.style.background = '';
-      btn.disabled = false;
-      document.getElementById('fname').value = '';
-      document.getElementById('lname').value = '';
-      document.getElementById('email').value = '';
-      document.getElementById('phone').value = '';
-      document.getElementById('service').value = '';
-      document.getElementById('message').value = '';
-    }, 3500);
-  }, 1200);
-}
-</script>
-</body>
-</html>
+  if (!fname
