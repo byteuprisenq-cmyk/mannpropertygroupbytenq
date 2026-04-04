@@ -355,32 +355,28 @@
   .hero-social-link svg { width: 16px; height: 16px; }
 
   @media (max-width: 760px) {
-    .hero-contact-strip { position: static; }
-    #home { padding-bottom: 0; }
-    .hero-contact-inner { flex-direction: column; }
-    .hero-contact-item {
-      border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08);
-      margin-right: 0; padding: 14px 0; width: 100%;
-      /* === CLEAN MOBILE CONTACT BAR FIX === */
-.hero-contact-strip {
-  position: static;
-  padding: 10px 0;
-  overflow-x: auto;
-}
 
-.hero-contact-inner {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  gap: 20px;
-  padding: 0 16px;
-}
+  .hero-contact-strip {
+    position: relative !important;  /* 🔥 CHANGE THIS */
+    width: 100%;
+    background: #0f1720;
+    padding: 10px 0;
+    overflow-x: auto;
+  }
 
-.hero-contact-item {
-  flex: 0 0 auto;
-  border: none;
-  padding: 8px 0;
-  margin: 0;
+  .hero-contact-inner {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    padding: 0 16px;
+  }
+
+  .hero-contact-item {
+    flex: 0 0 auto;
+    border: none;
+    padding: 8px 0;
+  }
+
 }
 
 .hero-contact-label {
@@ -889,7 +885,9 @@
   </div>
 
   <!-- Contact strip pinned to bottom of hero -->
-  <div class="hero-contact-strip hero-fade-4">
+  
+</section>
+<div class="hero-contact-strip hero-fade-4">
     <div class="hero-contact-inner">
       <!-- Agent Name -->
       <div class="hero-contact-item">
@@ -936,7 +934,6 @@
       </div>
     </div>
   </div>
-</section>
 
 <!-- SERVICES -->
 <section id="services">
