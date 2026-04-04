@@ -808,6 +808,30 @@
     background: linear-gradient(to right, transparent, var(--gold));
   }
   .divider-ornament::after { background: linear-gradient(to left, transparent, var(--gold)); }
+  @media (max-width: 768px) {
+
+  .hero-stats {
+    display: flex;
+    flex-direction: row;   /* keep in one line */
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 25px;
+    padding-top: 20px;
+  }
+
+  .hero-stat {
+    flex: 1;
+    text-align: center;
+  }
+
+  .hero-stat-num {
+    font-size: 22px;
+  }
+
+  .hero-stat-label {
+    font-size: 9px;
+  }
+}
 </style>
 </head>
 <body>
@@ -868,20 +892,24 @@
       <a href="#properties" class="btn-primary">Explore Properties</a>
       <a href="#contact" class="btn-outline">Book Consultation</a>
     </div>
-    <div class="hero-stats hero-fade-4">
-      <div class="hero-stat">
-        <div class="hero-stat-num">12<span>+</span></div>
-        <div class="hero-stat-label">Years Experience</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">300<span>+</span></div>
-        <div class="hero-stat-label">Homes Delivered</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">98<span>%</span></div>
-        <div class="hero-stat-label">Client Satisfaction</div>
-      </div>
-    </div>
+    <div class="hero-stats hero-fade-4 stats">
+  
+  <div class="hero-stat">
+    <div class="hero-stat-num">12<span>+</span></div>
+    <div class="hero-stat-label">Years Experience</div>
+  </div>
+
+  <div class="hero-stat">
+    <div class="hero-stat-num">300<span>+</span></div>
+    <div class="hero-stat-label">Homes Delivered</div>
+  </div>
+
+  <div class="hero-stat">
+    <div class="hero-stat-num">98<span>%</span></div>
+    <div class="hero-stat-label">Client Satisfaction</div>
+  </div>
+
+</div>
   </div>
 
   <!-- Contact strip pinned to bottom of hero -->
