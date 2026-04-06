@@ -1264,7 +1264,7 @@
       <label for="message">Your Message</label>
       <textarea id="message" placeholder="Tell us about your property goals..."></textarea>
     </div>
-    <button class="btn-primary form-submit" onclick="submitForm(this)">Send Enquiry →</button>
+    <button class="btn-primary form-submit" onclick="submitForm(this)" type="button">Send Enquiry →</button>
   </div>
 </section>
 
@@ -1384,30 +1384,60 @@ document.querySelectorAll('.reveal').forEach(function(el) {
 });
 
 // ── FORM SUBMIT ──
-function submitForm(btn) {
-  const fname = document.getElementById('fname').value.trim();
-  const email = document.getElementById('email').value.trim();
+async function submitForm(btn) {
+  const fname   = document.getElementById('fname').value.trim();
+  const lname   = document.getElementById('lname').value.trim();
+  const email   = document.getElementById('email').value.trim();
+  const phone   = document.getElementById('phone').value.trim();
+  const service = document.getElementById('service').value;
+  const message = document.getElementById('message').value.trim();
+
   if (!fname || !email) {
     alert('Please fill in your name and email to continue.');
     return;
   }
-  btn.textContent = 'Sending...';
+
+  btn.textContent = 'Sending…';
   btn.disabled = true;
-  setTimeout(function() {
-    btn.textContent = '✓ Message Sent!';
-    btn.style.background = '#2a9d5c';
-    setTimeout(function() {
-      btn.textContent = 'Send Enquiry →';
-      btn.style.background = '';
-      btn.disabled = false;
+
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        access_key: 'c3a5dedf-2e63-42f6-92a8-812708a3c16c',
+        subject: 'New Enquiry — Mann Property Group — ' + fname + ' ' + lname,
+        from_name: fname + ' ' + lname,
+        email: email,
+        phone: phone || 'Not provided',
+        service: service || 'Not specified',
+        message: message || 'No message provided',
+        replyto: email,
+      }),
+    });
+
+    if (res.ok) {
+      btn.textContent = '✓ Message Sent!';
+      btn.style.background = '#2a9d5c';
       document.getElementById('fname').value = '';
       document.getElementById('lname').value = '';
       document.getElementById('email').value = '';
       document.getElementById('phone').value = '';
       document.getElementById('service').value = '';
       document.getElementById('message').value = '';
-    }, 3500);
-  }, 1200);
+      setTimeout(function() {
+        btn.textContent = 'Send Enquiry →';
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 4000);
+    } else {
+      throw new Error('Failed');
+    }
+  } catch (err) {
+    alert('Something went wrong. Please email us directly at info.mannpropertygroup@gmail.com');
+    btn.textContent = 'Send Enquiry →';
+    btn.disabled = false;
+  }
 }
 </script>
 
