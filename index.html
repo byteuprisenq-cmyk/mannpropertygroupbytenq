@@ -661,50 +661,7 @@
   }
   @keyframes spin { to { transform: rotate(360deg); } }
 
-  /* ── TESTIMONIALS ── */
-  #testimonials {
-    padding: clamp(72px, 10vw, 128px) clamp(20px, 6vw, 80px);
-    background: var(--warm-white);
-  }
-  .testi-header { text-align: center; margin-bottom: 60px; }
-  .testi-header .section-eyebrow { justify-content: center; }
-  .testi-header .section-eyebrow::before { display: none; }
-  .testi-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-    gap: 24px;
-  }
-  .testi-card {
-    background: var(--cream); padding: 34px 30px;
-    border-radius: 2px; position: relative;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  .testi-card:hover { transform: translateY(-4px); box-shadow: 0 10px 36px rgba(0,0,0,0.08); }
-  .testi-quote {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 72px; color: var(--gold); line-height: 0.6;
-    margin-bottom: 18px; display: block; opacity: 0.7;
-  }
-  .testi-text {
-    font-size: 15px; color: var(--charcoal);
-    line-height: 1.82; font-weight: 300; margin-bottom: 26px;
-  }
-  .testi-author { display: flex; align-items: center; gap: 14px; }
-  .testi-avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border); }
-  .testi-name { font-size: 14px; font-weight: 500; color: var(--dark); }
-  .testi-role { font-size: 12px; color: var(--muted); margin-top: 2px; }
-  .testi-stars { color: var(--gold); font-size: 12px; margin-top: 4px; letter-spacing: 1px; }
-  .testi-footer { text-align: center; margin-top: 60px; }
-  .rating-badge {
-    display: inline-flex; align-items: center; gap: 16px;
-    background: var(--cream); padding: 18px 32px; margin-bottom: 28px;
-    border: 1px solid var(--border);
-  }
-  .rating-num { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 300; color: var(--dark); }
-  .rating-info { text-align: left; }
-  .rating-stars { color: var(--gold); font-size: 17px; }
-  .rating-count { font-size: 12px; color: var(--muted); margin-top: 2px; }
-
+  
   /* ── CONTACT ── */
   #contact {
     padding: clamp(72px, 10vw, 128px) clamp(20px, 6vw, 80px);
@@ -922,7 +879,6 @@
     <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#properties">Properties</a></li>
-    <li><a href="#testimonials">Testimonials</a></li>
     <li><a href="#contact">Contact</a></li>
     <li class="nav-cta"><a href="#contact">Book Consultation</a></li>
   </ul>
@@ -937,7 +893,6 @@
   <a href="#about" onclick="closeMobileMenu()">About</a>
   <a href="#services" onclick="closeMobileMenu()">Services</a>
   <a href="#properties" onclick="closeMobileMenu()">Properties</a>
-  <a href="#testimonials" onclick="closeMobileMenu()">Testimonials</a>
   <a href="#contact" onclick="closeMobileMenu()">Contact</a>
   <a href="#contact" class="mob-cta" onclick="closeMobileMenu()">Book Consultation</a>
   <div class="mobile-contact-bar">
@@ -1123,99 +1078,7 @@
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section id="testimonials">
-  <div class="testi-header reveal">
-    <div class="section-eyebrow">Client Stories</div>
-    <h2 class="section-title">What our clients <em>say</em></h2>
-    <p style="color:var(--muted);margin-top:14px;font-size:16px;font-weight:300">Real experiences from real people. We are proud of the relationships we build and the outcomes we deliver.</p>
-  </div>
-  <div class="testi-grid">
-    <div class="testi-card reveal">
-      <span class="testi-quote">"</span>
-      <p class="testi-text">Mann Property Group made our first home buying experience seamless and stress-free. Highly professional and transparent every step of the way.</p>
-      <div class="testi-author">
-        <img class="testi-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=120" alt="James Walker" loading="lazy">
-        <div>
-          <div class="testi-name">James Walker</div>
-          <div class="testi-role">First Home Buyer, Wyndham Vale</div>
-          <div class="testi-stars">★★★★★</div>
-        </div>
-      </div>
-    </div>
-    <div class="testi-card reveal">
-      <span class="testi-quote">"</span>
-      <p class="testi-text">Their attention to detail and market knowledge is unmatched. We felt confident every step of the way. Truly a cut above every other agency we spoke with.</p>
-      <div class="testi-author">
-        <img class="testi-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=120" alt="Olivia Harris" loading="lazy">
-        <div>
-          <div class="testi-name">Olivia Harris</div>
-          <div class="testi-role">Property Investor, Point Cook</div>
-          <div class="testi-stars">★★★★★</div>
-        </div>
-      </div>
-    </div>
-    <div class="testi-card reveal">
-      <span class="testi-quote">"</span>
-      <p class="testi-text">From planning to execution, everything was handled perfectly. We could not be happier with our renovation. Highly recommend Mann Property Group.</p>
-      <div class="testi-author">
-        <img class="testi-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=120" alt="Daniel Smith" loading="lazy">
-        <div>
-          <div class="testi-name">Daniel Smith</div>
-          <div class="testi-role">Renovation Client, Tarneit</div>
-          <div class="testi-stars">★★★★★</div>
-        </div>
-      </div>
-    </div>
-    <div class="testi-card reveal">
-      <span class="testi-quote">"</span>
-      <p class="testi-text">We extended our home through Mann Property Group and the result exceeded every expectation. The process was smooth and the quality is outstanding.</p>
-      <div class="testi-author">
-        <img class="testi-avatar" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=120" alt="Sophie Chen" loading="lazy">
-        <div>
-          <div class="testi-name">Sophie Chen</div>
-          <div class="testi-role">Extension Client, Hoppers Crossing</div>
-          <div class="testi-stars">★★★★★</div>
-        </div>
-      </div>
-    </div>
-    <div class="testi-card reveal">
-      <span class="testi-quote">"</span>
-      <p class="testi-text">Expanding our portfolio has never felt this supported. Mann Property Group understood our investment goals and delivered exactly what we needed.</p>
-      <div class="testi-author">
-        <img class="testi-avatar" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=120" alt="Marcus Lee" loading="lazy">
-        <div>
-          <div class="testi-name">Marcus Lee</div>
-          <div class="testi-role">Portfolio Investor, Werribee</div>
-          <div class="testi-stars">★★★★★</div>
-        </div>
-      </div>
-    </div>
-    <div class="testi-card reveal">
-      <span class="testi-quote">"</span>
-      <p class="testi-text">From our first meeting to receiving the keys, the entire experience was first class. They genuinely care about their clients and it shows in everything they do.</p>
-      <div class="testi-author">
-        <img class="testi-avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=120" alt="Rachel Thompson" loading="lazy">
-        <div>
-          <div class="testi-name">Rachel Thompson</div>
-          <div class="testi-role">New Home Build, Truganina</div>
-          <div class="testi-stars">★★★★★</div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="testi-footer reveal">
-    <div class="rating-badge">
-      <div class="rating-num">5.0</div>
-      <div class="rating-info">
-        <div class="rating-stars">★★★★★</div>
-        <div class="rating-count">Based on 150+ verified client reviews</div>
-      </div>
-    </div>
-    <br>
-    <a href="#contact" class="btn-primary">Book Your Free Consultation</a>
-  </div>
-</section>
+
 
 <!-- CONTACT -->
 <section id="contact">
@@ -1350,7 +1213,6 @@
       <div class="footer-col-title">Company</div>
       <a href="#about">About Us</a>
       <a href="#properties">Properties</a>
-      <a href="#testimonials">Reviews</a>
       <a href="#contact">Contact</a>
     </div>
     <div class="footer-col">
